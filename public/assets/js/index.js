@@ -32,6 +32,7 @@ let activeNote = {};
 // activity 7
 // fetching data from that URL 
 // there cannot be a body for GET method 
+// path & parameter 
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
