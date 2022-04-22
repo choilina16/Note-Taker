@@ -1,9 +1,13 @@
+// starting code - commenting as part of the pseudocoding process 
+
+// variables
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// query selectors if you are in the notes html file
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -25,6 +29,9 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+// activity 7
+// fetching data from that URL 
+// there cannot be a body for GET method 
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
