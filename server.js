@@ -6,8 +6,11 @@ const express = require('express');
 // so you don't have to deal with all the relative pathing
 const path = require('path');
 const fs = require('fs');
+// const util = require('util');
+
 // connecting the db.json file where the user will store their notes
 const dbData = require('./db/db.json');
+const uuid = require('./helpers/uuid');
 
 // Initialize app variable
 const app = express();
@@ -59,6 +62,7 @@ app.post('/api/notes', (req, res) => {
       const newNote = {
         title, 
         text,
+        id: uuid(),
       };
 
       fs.readFile('./db/db.json', 'utf8', (err, data) => {

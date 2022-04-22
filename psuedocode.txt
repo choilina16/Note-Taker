@@ -2,7 +2,7 @@
 2. probably go through section 11 again (activities & video) to refresh understanding of what to do 
 3. probably watch a youtube video / crash course type of thing 
 
-
+4. activity 22 to append?
 
 ## Objective: modify the starter code to create an application that can be used to write and save notes. Build the back end, connect the two, and then deploy the entire application to Heroku. 
 
