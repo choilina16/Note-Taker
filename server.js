@@ -26,6 +26,15 @@ app.use(express.json());
 // Add a static middleware for serving assets in the public folder --> telling express the location where all of our client side/html functionalities are 
 app.use(express.static('public'));
 
+// create api route on the server side
+app.get('/api/notes', (req, res) => {
+  // mia from BCS helped me figure this line out.
+  // readFile in get route where you want to get all the notes 
+  // So you need to read that file, then parse it since its an object and you want to get back the string and then send it to the browser/user
+  const readFile= fs.readFileSync('./db/db.json', 'utf8');
+  const notes = JSON.parse(readFile);
+  res.json(notes)}
+);
 // GET REQUEST
 // reading the db file, setting up a route , '/' -> root path or URL to create a new path, call back function -> req(request), res(response)
 app.get('/', (req, res) => {
@@ -35,11 +44,8 @@ app.get('/', (req, res) => {
 // .get method - user end perspective - getting the html file from the server
 app.get('/notes', (req, res) => 
     // __dirname is the parent folder
-    res.sendFile(path.join(__dirname, 'public/notes.html'))
+    res.sendFile(path.join(__dirname, 'public/notes.html'))  
 );
-
-// create api route on the server side
-app.get('/api/notes', (req, res) => res.json(dbData));
 
 // Fallback route for when a user attempts to visit routes that don't exist
 app.get('*', (req, res) =>
@@ -98,8 +104,8 @@ app.post('/api/notes', (req, res) => {
 
 // DELETE REQUEST - BONUS 
 // when user wants to delete their note, it will be deleted from the db.json file
-// app.delete('/api/notes', (req, res) => {
-
+// app.delete('/:id', (req, res) => {
+//   readFromFile('')
 // })
 
 // CREATION OF THE SERVER
@@ -107,16 +113,3 @@ app.post('/api/notes', (req, res) => {
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
-
-
-        // // using activity 19 - Convert the data to a string so we can save it
-        // const noteString = JSON.stringify(newNote);
-
-        // // Write the string to a file -> writeFileAsync,appendFile
-        // fs.writeFile(`./db/${newNote.title}.json`, noteString, (err) =>
-        //   err
-        //     ? console.error(err)
-        //     : console.log(
-        //         `Review for ${newNote.title} has been written to JSON file`
-        //       )
-        // );

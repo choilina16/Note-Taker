@@ -29,7 +29,7 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
-// activity 7
+// activity 17 - mini project
 // fetching data from that URL 
 // there cannot be a body for GET method 
 // path & parameter 
@@ -39,6 +39,7 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
+    
   });
 
 const saveNote = (note) =>
