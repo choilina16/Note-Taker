@@ -34,3 +34,10 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ## Installation Instructions
 Please use npm i
 Please use node server.js to run server
+
+## Acknowledgments 
+Showing appreciation to our study group! 
+* Anthony Chang
+* James Edwards
+* Brian Samuels
+* Seamona Stewart
